@@ -73,6 +73,8 @@ func (c *Client) update(host string) error {
 				return nil
 			}
 		}
+
+		logrus.WithField("host", rr.Name).Errorf("Record not found on Cloudflare")
 	}
 
 	return nil
