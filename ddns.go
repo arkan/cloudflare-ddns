@@ -1,4 +1,4 @@
-package ddns
+package cloudflare
 
 import (
 	"time"

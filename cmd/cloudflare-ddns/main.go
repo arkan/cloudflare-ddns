@@ -4,11 +4,11 @@ import (
 	"os"
 
 	"github.com/Sirupsen/logrus"
-	"github.com/arkan/cloudflare-ddns/ddns"
+	cloudflare "github.com/arkan/cloudflare-ddns"
 )
 
 func main() {
-	c, err := ddns.New(os.Getenv("CF_API_KEY"), os.Getenv("CF_API_EMAIL"))
+	c, err := cloudflare.New(os.Getenv("CF_API_KEY"), os.Getenv("CF_API_EMAIL"))
 	if err != nil {
 		logrus.WithError(err).Fatal("unable to instantiate ddns")
 	}
