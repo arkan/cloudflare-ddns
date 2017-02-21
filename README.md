@@ -12,7 +12,7 @@ CF_HOST=xx.yy.com CF_API_KEY=xxxxx -e CF_API_EMAIL=your@email.com go run cmd/clo
 ## Docker
 
 ```
-docker run -e CF_HOST=xx.yy.com -e CF_API_KEY=xxxxx -e CF_API_EMAIL=your@email.com arkan/cloudflare-ddns:latest
+docker run -e CF_HOST=xx.yy.com -e CF_API_KEY=xxxxx -e CF_API_EMAIL=your@email.com berndinox/cloudflare-ddns:latest
 ```
 
 ## Compose v3 
