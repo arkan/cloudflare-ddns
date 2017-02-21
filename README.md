@@ -30,7 +30,7 @@ services:
 ```
 
 
-Added CURL to perform health checks from insdide the container
+Added CURL to perform health checks from inside the container
 eg.:
 ```
     healthcheck:
