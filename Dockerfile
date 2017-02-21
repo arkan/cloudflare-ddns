@@ -1,6 +1,6 @@
 FROM golang:1.7.1-alpine
 
-RUN apk --update add git ca-certificates && rm -rf /var/cache/apk/*
+RUN apk --update add git ca-certificates curl && rm -rf /var/cache/apk/*
 
 ARG VERSION
 WORKDIR /app

@@ -12,17 +12,36 @@ CF_HOST=xx.yy.com CF_API_KEY=xxxxx -e CF_API_EMAIL=your@email.com go run cmd/clo
 ## Docker
 
 ```
-docker run -e CF_HOST=xx.yy.com -e CF_API_KEY=xxxxx -e CF_API_EMAIL=your@email.com arkan/cloudflare-ddns:latest
+docker run -e CF_HOST=xx.yy.com -e CF_API_KEY=xxxxx -e CF_API_EMAIL=your@email.com berndinox/cloudflare-ddns:latest
 ```
 
-## unRAID
+## Compose v3 
+```
+version: '3'
+services:
+  dns:
+    image: berndinox/cloudflare-ddns:latest
+    environment:
+      - CF_HOST=${DOMAIN}
+      - CF_API_KEY=${KEY}
+      - CF_API_EMAIL=${MAIL}
+    deploy:
+      replicas: 1
+```
 
-You can use my [unraid-templates](https://github.com/arkan/unraid-templates).
+
+Added CURL to perform health checks from inside the container
+eg.:
+```
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://${DOMAIN}"]
+      interval: 20s
+      timeout: 10s
+      retries: 3
+```
 
 
-#Copyright
-
+Soure:
 Copyright © 2016 Florian Bertholin
-
 See the [LICENSE](./LICENSE) (MIT) file for more details.
 
